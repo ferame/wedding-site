@@ -1,0 +1,31 @@
+{
+    "en": {
+        "hello": "Hello in english",
+        "language": "EN",
+        "navbar.home": "Home",
+        "navbar.story": "Story",
+        "navbar.agenda": "Agenda",
+        "navbar.travel": "Travel",
+        "navbar.thingsToDo": "Things to Do",
+        "navbar.QnA": "Q & A",
+        "navbar.people": "People",
+        "navbar.rsvp": "RSVP"
+    },
+    "lt": {
+        "language": "LT",
+        "navbar.story": "Istorija",
+        "navbar.agenda": "Agenda",
+        "navbar.travel": "Atvykimas",
+        "navbar.thingsToDo": "Užsiėmimai",
+        "navbar.QnA": "Klausimai",
+        "navbar.people": "Svečiai",
+        "navbar.rsvp": "Atsakyti"
+    },
+    "bg": {
+        "language": "BG"
+    },
+    "fr": {
+      "hello": "Bonjour",
+      "navbar.home": "Chateau"
+    }
+}

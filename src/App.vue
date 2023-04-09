@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar.vue";
 </script>
 
 <template class="relative margin-auto">
-  <header class="fixed top-0 left-0 right-0 py-2 px-6 bg-lime-200">
+  <header class="fixed top-0 left-0 right-0 pt-2 px-6 bg-pink-50 border-b-4 border-black">
     <NavBar/>
   </header>
 
@@ -16,7 +16,7 @@ import NavBar from "./components/NavBar.vue";
     <RouterView/>
   </div>
   
-  <footer class="flex justify-center fixed bottom-0 left-0 right-0 py-2 px-5 bg-pink-200">
+  <footer class="flex justify-center fixed bottom-0 left-0 right-0 py-2 px-5 bg-pink-100 border-t-4 border-black">
     <div>Placeholder footer text</div>
   </footer>
 </template>
