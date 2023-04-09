@@ -10,22 +10,42 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/about",
-      name: "about",
+      path: "/story",
+      name: "story",
+      component: () => import("../views/StoryView.vue"),
+    },
+    {
+      path: "/agenda",
+      name: "agenda",
+      component: () => import("../views/AgendaView.vue"),
+    },
+    {
+      path: "/travel",
+      name: "travel",
+      component: () => import("../views/TravelView.vue"),
+    },
+    {
+      path: "/things-to-do",
+      name: "things-to-do",
+      component: () => import("../views/ThingsToDoView.vue"),
+    },
+    {
+      path: "/q-and-a",
+      name: "q-and-a",
+      component: () => import("../views/QAView.vue"),
+    },
+    {
+      path: "/people",
+      name: "people",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"),
+      component: () => import("../views/PeopleView.vue"),
     },
     {
-      path: "/info",
-      name: "info",
-      component: () => import("../views/InfoView.vue"),
-    },
-    {
-      path: "/contact",
-      name: "contact",
-      component: () => import("../views/ContactView.vue"),
+      path: "/rsvp",
+      name: "rsvp",
+      component: () => import("../views/RsvpView.vue"),
     }
   ],
 });
