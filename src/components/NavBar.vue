@@ -3,30 +3,38 @@ import LanguageSelect from './LanguageSelect.vue';
 </script>
 
 <template>
-    <nav class="flex flex-col justify-center grid justify-items-center">
-      <h1 class="text-2xl">
+    <nav class="flex flex-col">
+      <h1 class="title top text-2xl pt-1 flex justify-center hover:text-pink-500">
         <RouterLink class="route" to="/">Elena + Justinas</RouterLink>
       </h1>
-      <ul class="flex flex-row list-items">
-        <RouterLink class="route" to="/story">{{ $t('navbar.story') }}</RouterLink>
-        <RouterLink class="route" to="/agenda">{{ $t('navbar.agenda') }}</RouterLink>
-        <RouterLink class="route" to="/travel">{{  $t('navbar.travel') }}</RouterLink>
-        <RouterLink class="route" to="/things-to-do">{{ $t('navbar.thingsToDo') }}</RouterLink>
-        <RouterLink class="route" to="/q-and-a">{{  $t('navbar.QnA') }}</RouterLink>
-        <RouterLink class="route" to="/people">{{ $t('navbar.people') }}</RouterLink>
-        <RouterLink class="route" to="/rsvp">{{  $t('navbar.rsvp') }}</RouterLink>
-        <LanguageSelect/>
-      </ul>
+      <div class="menu flex flex-row justify-between">
+        <ul class="left-side flex flex-row list-items">
+          <RouterLink class="route" to="/story">{{ $t('navbar.story') }}</RouterLink>
+          <RouterLink class="route" to="/agenda">{{ $t('navbar.agenda') }}</RouterLink>
+          <RouterLink class="route" to="/travel">{{  $t('navbar.location') }}</RouterLink>
+          <RouterLink class="route" to="/q-and-a">{{  $t('navbar.QnA') }}</RouterLink>
+        </ul>
+        <div class="right-side flex flex-row">
+          <RouterLink class="route rsvp" to="/rsvp">{{  $t('navbar.rsvp') }}</RouterLink>
+          <LanguageSelect/>
+        </div>
+      </div>
     </nav>
 </template>
 
 <style scoped>
-.list-items .route {
+.list-items.left-side .route {
   @apply py-1 px-3 hover:bg-pink-200 hover:rounded-t-lg;
 }
-ul .router-link-active {
+
+.right-side .route {
+  @apply py-1 px-3 hover:bg-pink-200 hover:rounded-t-lg;
+}
+.menu .router-link-active {
   @apply bg-pink-200 rounded-t-lg;
 }
-</style>
 
-<!-- border-b-4 border-pink-500 -->
+.title .router-link-active {
+  @apply text-pink-500
+}
+</style>

@@ -19,54 +19,22 @@
         </ul>
       </div>
     </div>
-  </template>
+</template>
   
-  <script setup lang="ts">
-  import { ref } from 'vue';
+<script setup lang="ts">
+import { getLanguageByCode, languages, type Language } from '@/utils/language';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
   
-  interface Language {
-    code: string;
-    label: string;
-    icon: string;
-    class: string;
-  }
-  
-  const isOpen = ref(false);
-  const selectedLanguage = ref<Language>({
-    code: 'en',
-    label: 'EN',
-    icon: './src/assets/flags/gb.svg',
-    class: 'rounded-t-lg'
-  });
+const languageHandler = useI18n();
 
-  const languageHandler = useI18n();
+const isOpen = ref(false);
+const selectedLanguage = ref<Language>(getLanguageByCode(languageHandler.locale.value));
 
-  const languages: Language[] = [
-    {
-      code: 'en',
-      label: 'EN',
-      icon: './src/assets/flags/gb.svg',
-      class: 'rounded-t-lg'
-    },
-    {
-      code: 'lt',
-      label: 'LT',
-      icon: './src/assets/flags/lt.svg',
-      class: ''
-    },
-    {
-      code: 'bg',
-      label: 'BG',
-      icon: './src/assets/flags/bg.svg',
-      class: 'rounded-b-lg'
-    },
-  ];
-  
-  const selectLanguage = (language: Language) => {
+const selectLanguage = (language: Language) => {
     selectedLanguage.value = language;
     languageHandler.locale.value = language.code;
     isOpen.value = false;
-  }
-  </script>
+}
+</script>
   
