@@ -6,9 +6,11 @@ import LanguageSelect from './LanguageSelect.vue';
     <nav class="flex flex-col">
       <h1 class="title top text-2xl pt-1 flex justify-center hover:text-pink-500">
         <!-- Add detail where colorful umbrella is shown if we are in homepage, and black/white when in other page -->
-        <RouterLink class="route" to="/">Elena + Justinas</RouterLink>
+        <RouterLink class="route" to="/">
+          <img src="../assets/Elena_Justinas_no_background.png" width="150">
+        </RouterLink>
       </h1>
-      <div class="menu flex flex-row justify-between">
+      <div class="menu flex flex-row justify-between font-bold">
         <ul class="left-side flex flex-row list-items">
           <RouterLink class="route" to="/story">{{ $t('navbar.story') }}</RouterLink>
           <RouterLink class="route" to="/agenda">{{ $t('navbar.agenda') }}</RouterLink>
@@ -39,3 +41,8 @@ import LanguageSelect from './LanguageSelect.vue';
   @apply text-pink-500
 }
 </style>
+
+/* White - #FFFFFF */
+/* Yellow - #FFD95F */
+/* Green - #EE576A */
+/* Red - #5CC6B6 */

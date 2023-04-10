@@ -4,7 +4,8 @@
             <RouterLink
                 to="/"
                 class="text-xl action:text-pink-400"
-                >Elena + Justinas
+                >
+                <img src="../assets/Elena_Justinas_no_background.png" width="150">
             </RouterLink>
             <div class="flex gap-5">
                 <button
