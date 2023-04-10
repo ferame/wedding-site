@@ -3,7 +3,7 @@
         <div class="flex justify-between pt-2 px-3 pb-1">
             <RouterLink
                 to="/"
-                class="text-xl hover:text-pink-400"
+                class="text-xl action:text-pink-400"
                 >Elena + Justinas
             </RouterLink>
             <div class="flex gap-5">
@@ -51,12 +51,11 @@
             pt-2
           "
         >
-            <RouterLink class="route" to="/story">{{ $t('navbar.story') }}</RouterLink>
-            <RouterLink class="route" to="/agenda">{{ $t('navbar.agenda') }}</RouterLink>
-            <RouterLink class="route" to="/travel">{{  $t('navbar.location') }}</RouterLink>
-            <RouterLink class="route" to="/q-and-a">{{  $t('navbar.QnA') }}</RouterLink>
-            <RouterLink class="route" to="/rsvp">{{  $t('navbar.rsvp') }}</RouterLink>
-            <!-- <LanguageSelect/> -->
+            <RouterLink class="route" v-on:click="toggleNav" to="/story">{{ $t('navbar.story') }}</RouterLink>
+            <RouterLink class="route" v-on:click="toggleNav" to="/agenda">{{ $t('navbar.agenda') }}</RouterLink>
+            <RouterLink class="route" v-on:click="toggleNav" to="/travel">{{  $t('navbar.location') }}</RouterLink>
+            <RouterLink class="route" v-on:click="toggleNav" to="/q-and-a">{{  $t('navbar.QnA') }}</RouterLink>
+            <RouterLink class="route" v-on:click="toggleNav" to="/rsvp">{{  $t('navbar.rsvp') }}</RouterLink>
         </ul>
     </nav>
 </template>
@@ -80,7 +79,11 @@ const selectedLanguage = ref<Language>(getLanguageByCode(languageHandler.locale.
 const showMenu = ref(false);
 const showLangSelector = ref(false);
 
-const toggleNav = () => (showMenu.value = !showMenu.value);
+const toggleNav = () => {
+    console.log('Nav called');
+    
+    return (showMenu.value = !showMenu.value);
+}
 const toggleLang = () => (showLangSelector.value = !showLangSelector.value);
 
 const selectLanguage = (language: Language) => {

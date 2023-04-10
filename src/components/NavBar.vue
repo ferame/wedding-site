@@ -5,6 +5,7 @@ import LanguageSelect from './LanguageSelect.vue';
 <template>
     <nav class="flex flex-col">
       <h1 class="title top text-2xl pt-1 flex justify-center hover:text-pink-500">
+        <!-- Add detail where colorful umbrella is shown if we are in homepage, and black/white when in other page -->
         <RouterLink class="route" to="/">Elena + Justinas</RouterLink>
       </h1>
       <div class="menu flex flex-row justify-between">
