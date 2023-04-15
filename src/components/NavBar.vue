@@ -3,7 +3,7 @@ import LanguageSelect from './LanguageSelect.vue';
 </script>
 
 <template>
-    <nav class="flex flex-col">
+    <nav class="flex flex-col bg-white">
       <h1 class="title top text-2xl pt-1 flex justify-center hover:text-pink-500">
         <!-- Add detail where colorful umbrella is shown if we are in homepage, and black/white when in other page -->
         <RouterLink class="route" to="/">
@@ -27,11 +27,11 @@ import LanguageSelect from './LanguageSelect.vue';
 
 <style scoped>
 .list-items.left-side .route {
-  @apply py-1 px-3 hover:bg-pink-200 hover:rounded-t-lg;
+  @apply py-1 px-3 hover:bg-pink-100 hover:rounded-t-lg;
 }
 
 .right-side .route {
-  @apply py-1 px-3 hover:bg-pink-200 hover:rounded-t-lg;
+  @apply py-1 px-3 hover:bg-pink-100 hover:rounded-t-lg;
 }
 .menu .router-link-active {
   @apply bg-pink-200 rounded-t-lg;

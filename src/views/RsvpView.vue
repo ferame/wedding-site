@@ -8,8 +8,8 @@ export default {
 </script>
 
 <template>
-    <div class="rsvp">
-      <h1>This is a rsvp page</h1>
-    </div>
+  <div class="rsvp p-2">
+    <h1 class="text-">We look forward to seeing you! Fill out form below.</h1>
     <RsvpForm/>
-  </template>
+  </div>
+</template>

@@ -5,14 +5,13 @@ import NavBar from "./components/NavBar.vue";
 </script>
 
 <template class="relative margin-auto">
-  <!-- <header class="fixed top-0 left-0 right-0 pt-2 px-6 bg-pink-50 border-b-4 border-black"> -->
-  <header class="fixed top-0 left-0 right-0 bg-pink-50 border-b-4 border-black flex flex-column justify-center">
+  <header class="fixed top-0 left-0 right-0 border-b-2 border-black flex flex-column justify-center">
     <NavBar class="navbar max-w-screen-lg w-full px-4"/>
     <MobileNavBar class="mobile-navbar w-full"/>
   </header>
 
   <!-- <div class="router-view min-h-screen pt-[72px] pb-5 max-w-screen-lg mx-auto float-none"> -->
-  <div class="router-view min-h-screen pt-[72px] max-w-screen-lg mx-auto float-none">
+  <div class="router-view min-h-screen max-w-screen-lg mx-auto float-none">
     <RouterView/>
   </div>
   
@@ -26,10 +25,16 @@ import NavBar from "./components/NavBar.vue";
     .mobile-navbar {
       display: none;
     }
+    .router-view {
+      padding-top: 104px;
+    }
 }
 @media (max-width: 768px) {
   .navbar {
     display: none;
+  }
+  .router-view {
+      padding-top: 80px;
   }
 }
 </style>

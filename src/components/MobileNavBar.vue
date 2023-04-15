@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div class="flex justify-between pt-2 px-3 pb-1">
+        <div class="flex justify-between pt-2 px-3 pb-1 bg-white">
             <RouterLink
                 to="/"
                 class="text-xl action:text-pink-400"
