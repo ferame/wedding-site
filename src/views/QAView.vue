@@ -1,6 +1,6 @@
 <template>
-  <div class="p-4 h-screen pt-8">
-    <ul class="qa-list list-disc max-h-full overflow-y-auto">
+  <div class="pt-8 pb-20 px-8">
+    <ul class="qa-list list-disc max-h-full">
       <li v-for="(question, index) in qaList" :key="index" class="qa-item text-justify">
         <div>{{ index + 1 }}. <strong>{{ question.question }}</strong></div>
         <div>{{ question.answer }}</div>

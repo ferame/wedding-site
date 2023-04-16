@@ -9,7 +9,10 @@ export default {
 
 <template>
   <div class="rsvp p-2">
-    <h1 class="text-">We look forward to seeing you! Fill out form below.</h1>
-    <RsvpForm/>
+    <div class="text-center">
+      <h1 class="text-xl font-bold">We look forward to seeing you!</h1>
+      <p class="text-lg">If you wish, you can fill only one form for yourself and anyone else who is joining you</p>
+    </div>
+    <RsvpForm class="px-8"/>
   </div>
 </template>
