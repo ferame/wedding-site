@@ -7,32 +7,81 @@ const formRef = ref('');
 const form = ref({
     name: '',
     email: '',
-    message: '',
-    reply_to: '',
-    requirements: ''
+    attendance: '',
+    overnight_stay: '',
+    requirements: '',
+    message: ''
 });
 
-const sendEmail = () => {
+const errors = ref({
+    name: '',
+    email: '',
+    attendance: '',
+    overnight_stay: ''
+});
+
+const EMAIL_VALIDATION_REGEX = /\S+@\S+\.\S+/;
+
+const validateForm = (): boolean => {
+    let isValid = true;
+
+    // Validate name
+    if (!form.value.name) {
+        errors.value.name = 'Name is required';
+        isValid = false;
+    } else {
+        errors.value.name = '';
+    }
+
+    // Validate email
+    if (!form.value.email) {
+        errors.value.email = 'Email is required';
+        isValid = false;
+    } else if (!EMAIL_VALIDATION_REGEX.test(form.value.email)) {
+        errors.value.email = 'Invalid email format';
+        isValid = false;
+    } else {
+        errors.value.email = '';
+    }
+
+    console.log('Form value');
     console.log(form.value);
-    console.log('testing');
-    
-    if (form.value !== null) {
-        console.log('It went here');
-        
+
+    // Validate attendance
+    if (!form.value.attendance) {
+        errors.value.attendance = 'Attendance response is required';
+        isValid = false;
+    } else {
+        errors.value.attendance = '';
+    }
+
+    // Validate overnight stay
+    if (!form.value.overnight_stay) {
+        errors.value.overnight_stay = 'Overnight stay response is required';
+        isValid = false;
+    } else {
+        errors.value.overnight_stay = '';
+    }
+
+    return isValid;
+}
+
+const sendEmail = () => {
+    if (formRef.value !== null && validateForm()) {
         try {
-            console.log('and here');
             emailjs.sendForm(
             'service_y9x7qvb',
             'template_1o2f4l3',
             formRef.value,
             'HoYnFRtGLJAAVckGZ')
             .then((result) => {
-                console.log('SUCCESS!', result.text);
+                // TODO: change to a toastify solution
+                alert('RSVP sent successfully');
             }, (error) => {
-                console.log('FAILED...', error.text);
+                // TODO: change to a toastify solution
+                alert('RSVP failed to send');
             });   
         } catch (error) {
-            console.log('and here...');
             if (error instanceof ReferenceError) {
             alert( "JSON Error: " + error.message );
            } else {
@@ -47,35 +96,41 @@ const sendEmail = () => {
     <form ref="formRef" @submit.prevent="sendEmail">
         <div class="flex flex-col my-2">
             <label>Name(s)<span class="text-[#EE576A]" title="Required">*</span></label>
-            <input required oninvalid="this.setCustomValidity('Please enter your name(s)')" type="text" name="name" v-model="form.name" class="border border-gray-300 rounded py-2 px-4">
+            <input type="text" name="name" v-model="form.name" class="border border-gray-300 rounded py-2 px-4">
+            <p v-if="errors.name" class="text-red-500">{{ errors.name }}</p>
         </div>
 
         <div class="flex flex-col my-2">
             <label>Email<span class="text-[#EE576A]" title="Required">*</span></label>
-            <input required oninvalid="this.setCustomValidity('Please enter your email')" type="email" name="email" v-model="form.email" class="border border-gray-300 rounded py-2 px-4">
+            <input type="email" name="email" v-model="form.email" class="border border-gray-300 rounded py-2 px-4">
+            <p v-if="errors.email" class="text-red-500">{{ errors.email }}</p>
         </div>
 
         <div class="flex flex-col my-2">
             <label>Will you be attending?<span class="text-[#EE576A]" title="Required">*</span></label>
-            <select required id="response" name="attendance" class="border border-gray-300 rounded py-2 px-4">
+            <select id="response" name="attendance" v-model="form.attendance" class="border border-gray-300 rounded py-2 px-4">
+                <option value="">Please select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
                 <option value="unsure">Still Unsure</option>
             </select>
+            <p v-if="errors.attendance" class="text-red-500">{{ errors.attendance }}</p>
         </div>
 
         <div class="flex flex-col my-2">
             <label>Will you be staying overnight?<span class="text-[#EE576A]" title="Required">*</span></label>
-            <select required id="response" name="overnight_stay" class="border border-gray-300 rounded py-2 px-4">
+            <select id="response" name="overnight_stay" v-model="form.overnight_stay" class="border border-gray-300 rounded py-2 px-4">
+                <option value="">Please select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
                 <option value="unsure">Still Unsure</option>
             </select>
+            <p v-if="errors.overnight_stay" class="text-red-500">{{ errors.overnight_stay }}</p>
         </div>
 
         <div class="flex flex-col my-2">
             <label>Dietary requirements</label>
-            <textarea name="message" v-model="form.requirements" class="border border-gray-300 rounded py-2 px-4"></textarea>
+            <textarea name="requirements" v-model="form.requirements" class="border border-gray-300 rounded py-2 px-4"></textarea>
             <!-- <input type="email" name="reply_to" v-model="form.reply_to" class="border border-gray-300 rounded py-2 px-4"> -->
         </div>
 
