@@ -48,7 +48,7 @@
           class="
             list-items
             flex-col
-            bg-pink-100
+            bg-white
             pt-2
           "
         >

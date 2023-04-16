@@ -8,10 +8,10 @@ export default {
 </script>
 
 <template>
-  <div class="rsvp p-2">
+  <div class="rsvp p-2 pt-4">
     <div class="text-center">
-      <h1 class="text-xl font-bold">We look forward to seeing you!</h1>
-      <p class="text-lg">If you wish, you can fill only one form for yourself and anyone else who is joining you</p>
+      <h1 class="text-xl font-bold px-4">{{ $t('rsvp.title') }}</h1>
+      <p class="text-lg px-8">{{ $t('rsvp.hint') }}</p>
     </div>
     <RsvpForm class="px-8"/>
   </div>

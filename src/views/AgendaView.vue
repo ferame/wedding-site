@@ -2,12 +2,14 @@
   <div class="p-4">
     <div class="content-row flex items-center justify-center py-4">
         <div class="content-text w-1/2 px-8 flex flex-col items-center">
-          <h2 class="text-3xl font-bold mb-4">Schedule</h2>
+          <h2 class="text-3xl font-bold mb-4">{{ $t('agenda.schedule') }}</h2>
+          <p class="text-xl font-bold mb-2 text-center">{{ $t('agenda.babtynas') }}</p>
+          <p class="text-lg font-bold mb-2 text-center">{{ $t('agenda.date') }}</p>
           <ul class="text-lg">
-            <p><b>15:00</b> - Welcome drinks and snacks</p>
-            <p><b>16:00</b> - Wedding ceremony</p>
-            <p><b>18:00</b> - Dinner begins</p> 
-            <p><b>23:00</b> - Amber ceremony</p>  
+            <p><b>15:00</b> - {{ $t('agenda.drinksSnacks') }}</p>
+            <p><b>16:00</b> - {{ $t('agenda.ceremony') }}</p>
+            <p><b>18:00</b> - {{ $t('agenda.dinnerStart') }}</p> 
+            <p><b>23:00</b> - {{ $t('agenda.amberCeremony') }}</p>  
           </ul>
         </div>
         <div class="content-picture w-1/2 pb-3/4">

@@ -10,36 +10,40 @@
   </template>
 
 <script setup lang="ts">
-const qaList = [
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
+
+const qaList = computed(() => ([
     {
-      question: "When is the RSVP deadline?",
-      answer: "Please respond by June 1st."
+      question: t('qa.deadlineQ'),
+      answer: t('qa.deadlineA'),
     },
     {
-      question: "Is accommodation included?",
-      answer: "The wedding includes 1 free stay overnight in the manor, including breakfast. The venue has many bedrooms on the second floor, several shared bathrooms and a shared living area. Please select in the RSVP form whether you would like to stay overnight."
+      question: t('qa.accomodationQ'),
+      answer: t('qa.accomodationA')
     },
     {
-      question: "What will the weather be like?",
-      answer: "Based on previous years, we expect the weather to be mostly sunny with temperatures between 23°C during the day and 13°C during the night. Keep in mind that the weather in Lithuania is unpredictable so it can be anything between 10°C and 30°C."
+      question: t('qa.weatherQ'),
+      answer: t('qa.weatherA')
     },
     {
-      question: "Will the wedding be indoors or outdoors?",
-      answer: "Unless it rains, the welcome drinks, the wedding, and the late night amber ceremony will be outdoors while the celebration will be indoors."
+      question: t('qa.indoorsQ'),
+      answer: t('qa.indoorsA')
     },
     {
-      question: "What should I wear?",
-      answer: "We have a standard wedding dress code but remember that it might get cold during the evening."
+      question: t('qa.clothesQ'),
+      answer: t('qa.clothesA')
     },
     {
-      question: "What shoes should I wear?",
-      answer: "There is grass and gravel outside the venue so we advise the ladies not to wear very thin stilettos. Make sure to have comfortable shoes for dancing too!"
+      question: t('qa.shoesQ'),
+      answer: t('qa.shoesA')
     },
     {
-      question: "Who to call with questions?",
-      answer: "Here are all the phone numbers of the wedding party."
+      question: t('qa.callQ'),
+      answer: t('qa.callA')
     }
-]
+]));
 </script>
 
 <style scoped>
