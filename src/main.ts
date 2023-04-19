@@ -10,7 +10,7 @@ import "./assets/style.css";
 
 const i18n = createI18n({
     legacy: false,
-    locale: 'en',
+    locale: 'lt',
     messages: languages
 });
 

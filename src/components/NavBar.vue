@@ -14,7 +14,7 @@ import LanguageSelect from './LanguageSelect.vue';
         <ul class="left-side flex flex-row list-items">
           <RouterLink class="route" to="/story">{{ $t('navbar.story') }}</RouterLink>
           <RouterLink class="route" to="/agenda">{{ $t('navbar.agenda') }}</RouterLink>
-          <RouterLink class="route" to="/travel">{{  $t('navbar.location') }}</RouterLink>
+          <RouterLink class="route" to="/location">{{  $t('navbar.location') }}</RouterLink>
           <RouterLink class="route" to="/q-and-a">{{  $t('navbar.QnA') }}</RouterLink>
         </ul>
         <div class="right-side flex flex-row">

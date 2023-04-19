@@ -17,7 +17,7 @@ export const languages: Language[] = [
     {
         code: 'lt',
         label: 'LT',
-        labelLong: "Lietuvių",
+        labelLong: "Lietuviškai",
         icon: './src/assets/flags/lt.svg',
         class: ''
     },

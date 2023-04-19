@@ -14,10 +14,6 @@ import NavBar from "./components/NavBar.vue";
   <div class="router-view min-h-screen max-w-screen-lg mx-auto float-none">
     <RouterView/>
   </div>
-  
-  <!-- <footer class="flex justify-center fixed bottom-0 left-0 right-0 py-2 px-4 bg-pink-100">
-    <div>Placeholder footer text</div>
-  </footer> -->
 </template>
 
 <style scoped>

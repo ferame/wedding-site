@@ -3,7 +3,6 @@
 
 <template>
   <main>
-      <!-- <img src="../assets/panorama.jpg"/> -->
       <div class="desktop bg-white p-4 pt-8">
         <div class="content-row flex items-center justify-center">
           <div class="content-picture w-1/2 pb-3/4">

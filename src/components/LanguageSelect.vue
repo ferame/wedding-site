@@ -1,5 +1,5 @@
 <template>
-    <div class="relative">
+    <div class="relative" ref="componentRef">
       <button @click="isOpen = !isOpen"
               class="flex items-center space-x-2 px-3 py-1 bg-pink-100 rounded-t-lg hover:bg-pink-200 active:bg-pink-200">
         <img :src="selectedLanguage.icon" :alt="selectedLanguage.label" class="w-5 h-5">
@@ -25,9 +25,11 @@
 import { getLanguageByCode, languages, type Language } from '@/utils/language';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import useDetectOutsideClick from '../composables/useDetectOutsideClick';
   
 const languageHandler = useI18n();
 
+const componentRef = ref();
 const isOpen = ref(false);
 const selectedLanguage = ref<Language>(getLanguageByCode(languageHandler.locale.value));
 
@@ -36,5 +38,9 @@ const selectLanguage = (language: Language) => {
     languageHandler.locale.value = language.code;
     isOpen.value = false;
 }
+
+useDetectOutsideClick(componentRef, () => {
+  isOpen.value = false;
+})
 </script>
   

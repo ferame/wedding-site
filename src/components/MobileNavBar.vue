@@ -19,7 +19,7 @@
                     @click="toggleNav"
                     class="focus:outline-none"
                 >
-                    <img :src="showMenu ? './src/assets/mobile/menu-opened.png' : './src/assets/mobile/menu-closed.png'" class="w-8 h-8 ">
+                    <img :src="showMenu ? '../assets/mobile/menu-opened.png' : '../assets/mobile/menu-closed.png'" class="w-8 h-8 ">
                 </button>
             </div>
         </div>
@@ -29,7 +29,7 @@
             class="
                 list-items
                 flex-col
-                bg-pink-100
+                bg-white
                 pt-2
             "
         >
@@ -54,7 +54,7 @@
         >
             <RouterLink class="route" v-on:click="toggleNav" to="/story">{{ $t('navbar.story') }}</RouterLink>
             <RouterLink class="route" v-on:click="toggleNav" to="/agenda">{{ $t('navbar.agenda') }}</RouterLink>
-            <RouterLink class="route" v-on:click="toggleNav" to="/travel">{{  $t('navbar.location') }}</RouterLink>
+            <RouterLink class="route" v-on:click="toggleNav" to="/location">{{  $t('navbar.location') }}</RouterLink>
             <RouterLink class="route" v-on:click="toggleNav" to="/q-and-a">{{  $t('navbar.QnA') }}</RouterLink>
             <RouterLink class="route" v-on:click="toggleNav" to="/rsvp">{{  $t('navbar.rsvp') }}</RouterLink>
         </ul>
