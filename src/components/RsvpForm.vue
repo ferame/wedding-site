@@ -12,6 +12,9 @@ const emailError = computed(() => t('rsvp.emailError'));
 const emailWrong = computed(() => t('rsvp.emailWrong'));
 const attendanceError = computed(() => t('rsvp.attendanceError'));
 const stayError = computed(() => t('rsvp.stayError'));
+const starterError = computed(() => t('rsvp.starterError'));
+const saladSoupError = computed(() => t('rsvp.saladSoupError'));
+const mainError = computed(() => t('rsvp.mainError'));
 
 const send = computed(() => t('rsvp.send'))
 
@@ -21,14 +24,20 @@ const form = ref({
     attendance: '',
     overnight_stay: '',
     requirements: '',
-    message: ''
+    message: '',
+    starter: '',
+    salad_soup: '',
+    main: ''
 });
 
 const errors = ref({
     name: '',
     email: '',
     attendance: '',
-    overnight_stay: ''
+    overnight_stay: '',
+    starter: '',
+    salad_soup: '',
+    main: ''
 });
 
 const EMAIL_VALIDATION_REGEX = /\S+@\S+\.\S+/;
@@ -68,6 +77,30 @@ const validateForm = (): boolean => {
         isValid = false;
     } else {
         errors.value.overnight_stay = '';
+    }
+
+    // Validate starter
+    if (!form.value.starter) {
+        errors.value.starter = starterError.value;
+        isValid = false;
+    } else {
+        errors.value.starter = '';
+    }
+
+    // Validate salad/soup
+    if (!form.value.salad_soup) {
+        errors.value.salad_soup = saladSoupError.value;
+        isValid = false;
+    } else {
+        errors.value.salad_soup = '';
+    }
+
+    // Validate main
+    if (!form.value.main) {
+        errors.value.main = mainError.value;
+        isValid = false;
+    } else {
+        errors.value.main = '';
     }
 
     return isValid;
@@ -114,31 +147,69 @@ const sendEmail = () => {
             <p v-if="errors.email" class="text-red-500">{{ errors.email }}</p>
         </div>
 
-        <div class="flex flex-col my-3">
-            <label>{{ $t('rsvp.attendance') }}<span class="text-[#EE576A]" :title=required>*</span></label>
-            <select id="response" name="attendance" v-model="form.attendance" class="border border-gray-300 rounded py-2 px-4">
-                <option value="">{{$t('rsvp.choose.select')}}</option>
-                <option value="yes">{{ $t('rsvp.choose.yes') }}</option>
-                <option value="no">{{ $t('rsvp.choose.no') }}</option>
-                <option value="unsure">{{$t('rsvp.choose.unsure')}}</option>
-            </select>
-            <p v-if="errors.attendance" class="text-red-500">{{ errors.attendance }}</p>
+        <div class="py-5">
+            <div class="flex flex-col my-3">
+                <label>{{ $t('rsvp.attendance') }}<span class="text-[#EE576A]" :title=required>*</span></label>
+                <select id="response" name="attendance" v-model="form.attendance" class="border border-gray-300 rounded py-2 px-4">
+                    <option value="">{{$t('rsvp.choose.select')}}</option>
+                    <option value="yes">{{ $t('rsvp.choose.yes') }}</option>
+                    <option value="no">{{ $t('rsvp.choose.no') }}</option>
+                    <option value="unsure">{{$t('rsvp.choose.unsure')}}</option>
+                </select>
+                <p v-if="errors.attendance" class="text-red-500">{{ errors.attendance }}</p>
+            </div>
+
+            <div class="flex flex-col my-3">
+                <label>{{ $t('rsvp.stay') }}<span class="text-[#EE576A]" :title=required>*</span></label>
+                <select id="response" name="overnight_stay" v-model="form.overnight_stay" class="border border-gray-300 rounded py-2 px-4">
+                    <option value="">{{$t('rsvp.choose.select')}}</option>
+                    <option value="yes">{{ $t('rsvp.choose.yes') }}</option>
+                    <option value="no">{{ $t('rsvp.choose.no') }}</option>
+                    <option value="unsure">{{$t('rsvp.choose.unsure')}}</option>
+                </select>
+                <p v-if="errors.overnight_stay" class="text-red-500">{{ errors.overnight_stay }}</p>
+            </div>
         </div>
 
-        <div class="flex flex-col my-3">
-            <label>{{ $t('rsvp.stay') }}<span class="text-[#EE576A]" :title=required>*</span></label>
-            <select id="response" name="overnight_stay" v-model="form.overnight_stay" class="border border-gray-300 rounded py-2 px-4">
-                <option value="">{{$t('rsvp.choose.select')}}</option>
-                <option value="yes">{{ $t('rsvp.choose.yes') }}</option>
-                <option value="no">{{ $t('rsvp.choose.no') }}</option>
-                <option value="unsure">{{$t('rsvp.choose.unsure')}}</option>
-            </select>
-            <p v-if="errors.overnight_stay" class="text-red-500">{{ errors.overnight_stay }}</p>
-        </div>
+        <div class="py-5">
+            <p class="text-lg font-bold">{{ $t('rsvp.menu')}}</p>
+            <div class="flex flex-col my-3">
+                <label>{{ $t('rsvp.starter') }}<span class="text-[#EE576A]" :title=required>*</span></label>
+                <select id="response" name="starter" v-model="form.starter" class="border border-gray-300 rounded py-2 px-4">
+                    <option value="">{{$t('rsvp.choose.select')}}</option>
+                    <option value="asparagus">{{ $t('rsvp.starter.asparagus') }}</option>
+                    <option value="burrata">{{ $t('rsvp.starter.burrata') }}</option>
+                    <option value="vegan">{{ $t('rsvp.food.vegan') }}</option>
+                </select>
+                <p v-if="errors.starter" class="text-red-500">{{ errors.starter }}</p>
+            </div>
 
-        <div class="flex flex-col my-3">
-            <label>{{ $t('rsvp.dietary') }}</label>
-            <textarea name="requirements" v-model="form.requirements" class="border border-gray-300 rounded py-2 px-4"></textarea>
+            <div class="flex flex-col my-3">
+                <label>{{ $t('rsvp.salad_soup') }}<span class="text-[#EE576A]" :title=required>*</span></label>
+                <select id="response" name="salad_soup" v-model="form.salad_soup" class="border border-gray-300 rounded py-2 px-4">
+                    <option value="">{{$t('rsvp.choose.select')}}</option>
+                    <option value="salad">{{ $t('rsvp.salad_soup.salad') }}</option>
+                    <option value="soup">{{ $t('rsvp.salad_soup.soup') }}</option>
+                    <option value="vegan">{{ $t('rsvp.food.vegan') }}</option>
+                </select>
+                <p v-if="errors.salad_soup" class="text-red-500">{{ errors.salad_soup }}</p>
+            </div>
+
+            <div class="flex flex-col my-3">
+                <label>{{ $t('rsvp.main') }}<span class="text-[#EE576A]" :title=required>*</span></label>
+                <select id="response" name="main" v-model="form.main" class="border border-gray-300 rounded py-2 px-4">
+                    <option value="">{{$t('rsvp.choose.select')}}</option>
+                    <option value="beef">{{ $t('rsvp.main.beef') }}</option>
+                    <option value="fish">{{ $t('rsvp.main.fish') }}</option>
+                    <option value="vegan_vegetarian">{{ $t('rsvp.food.vegan_vegetarian') }}</option>
+                </select>
+                <p v-if="errors.main" class="text-red-500">{{ errors.main }}</p>
+            </div>
+
+            <div class="flex flex-col my-3">
+                <label>{{ $t('rsvp.dietary') }}</label>
+                <textarea name="requirements" v-model="form.requirements" class="border border-gray-300 rounded py-2 px-4"></textarea>
+            </div>
         </div>
 
         <div class="flex flex-col my-3">
