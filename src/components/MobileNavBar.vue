@@ -3,7 +3,7 @@
         <div class="flex justify-between pt-2 px-3 pb-1 bg-white">
             <RouterLink
                 to="/"
-                class="text-xl action:text-pink-400"
+                class="text-xl action:text-rose-400"
                 >
                 <img src="../assets/Elena_Justinas_no_background.png" width="150">
             </RouterLink>
@@ -35,7 +35,7 @@
         >
           <li v-for="language in languages"
               :key="language.code"
-              class="flex flex-row px-3 text-lg active:bg-pink-200 py-2"
+              class="flex flex-row px-3 text-lg active:bg-rose-200 py-2"
               @click="selectLanguage(language)">
             <img :src="language.icon" :alt="language.label" class="w-8 rounded-md mx-2">
             <span>{{ language.labelLong }}</span>
@@ -96,6 +96,6 @@ const selectLanguage = (language: Language) => {
 
 <style scoped>
 .route {
-    @apply px-3 text-lg active:bg-pink-200 py-2
+    @apply px-3 text-lg active:bg-rose-200 py-2
 }
 </style>

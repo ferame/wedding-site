@@ -1,17 +1,17 @@
 <template>
     <div class="relative" ref="componentRef">
       <button @click="isOpen = !isOpen"
-              class="flex items-center space-x-2 px-3 py-1 bg-pink-100 rounded-t-lg hover:bg-pink-200 active:bg-pink-200">
+              class="flex items-center space-x-2 px-3 py-1 bg-rose-100 rounded-t-lg hover:bg-rose-200 active:bg-rose-200">
         <img :src="selectedLanguage.icon" :alt="selectedLanguage.label" class="w-5 h-5">
         <span class="">{{ selectedLanguage.label }}</span>
       </button>
       <div v-if="isOpen"
-           class="absolute top-full left-0 mt-2 rounded-lg z-10 bg-pink-100">
+           class="absolute top-full left-0 mt-2 rounded-lg z-10 bg-rose-100">
         <ul>
           <li v-for="language in languages"
               :key="language.code"
               :class="language.class"
-              class="px-3 py-1 hover:bg-pink-200 cursor-pointer flex items-center space-x-2"
+              class="px-3 py-1 hover:bg-rose-200 cursor-pointer flex items-center space-x-2"
               @click="selectLanguage(language)">
             <img :src="language.icon" :alt="language.label" class="w-5 h-5 ">
             <span>{{ language.label }}</span>
